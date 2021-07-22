@@ -1,5 +1,5 @@
 //
-//  Copyright (c) Google Inc.
+//  Copyright (c) 2021 Google Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -14,16 +14,20 @@
 //  limitations under the License.
 //
 
-import Firebase
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+struct Comment {
+  var uid: String
+  var author: String
+  var text: String
 
-  var window: UIWindow?
+  init(uid: String, author: String, text: String) {
+    self.uid = uid
+    self.author = author
+    self.text = text
+  }
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    FirebaseApp.configure()
-    return true
+  init() {
+    self.init(uid: "", author: "", text: "")
   }
 }
